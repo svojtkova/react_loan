@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { Form } from './components/form';
 import { Card } from 'primereact/card';
