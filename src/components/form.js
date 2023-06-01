@@ -113,8 +113,13 @@ export const Form = () => {
             setIsLoading(true);
             setIsLoading(true); // Start loading
 
-            try {
-                const response = await axios.post('https://flask-production-a60d.up.railway.app/api/loan', data);
+            try {//https://flask-production-a60d.up.railway.app
+                const customConfig = {
+                    headers: {
+                    'Content-Type': 'application/json'
+                    }
+                };
+                const response = await axios.post('https://flask-production-a60d.up.railway.app/api/loan', data, customConfig);
                 setResponseMessage(response.data.message);
             } catch (error) {
                 setResponseMessage('Error occurred.');
@@ -246,7 +251,7 @@ export const Form = () => {
                         <div className="field">
                             <span className="p-float-label p-input-icon-right">
                                 <InputNumber id="earliest_cr_line" name="earliest_cr_line" value={formik.values.earliest_cr_line} onValueChange={formik.handleChange}
-                                    mode="decimal" min={2000} max={2500}
+                                    mode="decimal" min={1970} max={2080}
                                     className={classNames({ 'p-invalid': isFormFieldValid('earliest_cr_line') })}
                                     tooltip="The year the borrower's earliest reported credit line was opened"
                                 />
