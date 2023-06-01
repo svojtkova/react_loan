@@ -1,7 +1,6 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useFormik } from 'formik';
-import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 import { Dropdown } from 'primereact/dropdown';
 import { Dialog } from 'primereact/dialog';
@@ -20,7 +19,6 @@ export const Form = () => {
         { label: '60 months', value: '60' }
     ];
     const [showMessage, setShowMessage] = useState(false);
-    const [formData, setFormData] = useState({});
 
     const statuses = [
         { label: 'Not Verified', value: '0' },
@@ -114,7 +112,6 @@ export const Form = () => {
         onSubmit: async (data) => {
             setIsLoading(true);
             console.log(data);
-            setFormData(data);
             setIsLoading(true); // Start loading
 
             try {
