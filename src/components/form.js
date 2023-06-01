@@ -118,7 +118,7 @@ export const Form = () => {
             setIsLoading(true); // Start loading
 
             try {
-                const response = await axios.post('http://127.0.0.1:5000/api/loan', data);
+                const response = await axios.post('https://flask-production-a60d.up.railway.app/api/loan', data);
                 setResponseMessage(response.data.message);
             } catch (error) {
                 console.error('API error:', error);
