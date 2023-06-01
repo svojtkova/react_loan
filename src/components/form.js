@@ -111,14 +111,12 @@ export const Form = () => {
         },
         onSubmit: async (data) => {
             setIsLoading(true);
-            console.log(data);
             setIsLoading(true); // Start loading
 
             try {
                 const response = await axios.post('https://flask-production-a60d.up.railway.app/api/loan', data);
                 setResponseMessage(response.data.message);
             } catch (error) {
-                console.error('API error:', error);
                 setResponseMessage('Error occurred.');
             } finally {
                 setIsLoading(false); // Stop loading
